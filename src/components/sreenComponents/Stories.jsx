@@ -13,17 +13,17 @@ const storyInfo = [
     {
         id: 1,
         name: "Votre story",
-        image: require('../../../assets/images/1.jpg')
+        image: require('../../../assets/images/train.png')
     },
     {
         id: 0,
         name: "Dj_Tyga",
-        image: require('../../../assets/images/1.jpg')
+        image: require('../../../assets/images/splash_2.png')
     },
     {
         id: 0,
         name: "Destiny",
-        image: require('../../../assets/images/2.jpg')
+        image: require('../../../assets/images/5.jpeg')
     },{
         id: 0,
         name: "Rayn_kevin",
@@ -38,37 +38,40 @@ const storyInfo = [
         image: require('../../../assets/images/5.jpeg')
     },{
         id: 0,
-        name: "Votre story",
+        name: "Herman_Pic",
         image: require('../../../assets/images/1.jpg')
     },{
         id: 0,
-        name: "Votre story",
+        name: "Sébastien",
         image: require('../../../assets/images/1.jpg')
     },{
         id: 0,
-        name: "Votre story",
+        name: "Yvan_la_Fleure",
         image: require('../../../assets/images/1.jpg')
     },{
         id: 0,
-        name: "Votre story",
-        image: require('../../../assets/images/1.jpg')
+        name: "Hormele",
+        image: require('../../../assets/images/train.png')
     },
     
 ]
 
   return (
-    <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} style={{paddingVertical: 20}}>
+    <ScrollView 
+    horizontal={true} 
+    showsHorizontalScrollIndicator={false} 
+    style={{paddingVertical: 20}}>
         {
             storyInfo.map((data, index) => {
                 return(
-                    <TouchableOpacity key={index} onPress={() => navigation.push("Status", {
+                    <TouchableOpacity key={index} onPress={() => navigation.navigate("Status", {
                         name: data.name,
                         image: data.image
                     })}>
                         <View style={{
                             flexDirection: "column",
                             paddingHorizontal: 8, 
-                            position: "absolute"
+                            //position: "absolute"
                         }}>
                             {
                                 data.id == 1 ?(
@@ -78,6 +81,7 @@ const storyInfo = [
                                 bottom: 15, 
                                 right: 10, 
                                 zIndex: 1,
+                                borderRadius: 100
                                 }}
                             >
                                 <Entypo 
@@ -85,7 +89,8 @@ const storyInfo = [
                                 style={{
                                     fontSize: 20, 
                                     color: "#405de6", 
-                                    backgroundColor: "white"
+                                    backgroundColor: "white",
+                                    borderRadius: 100
                                     }}
                                 /> 
                             </View>
@@ -114,7 +119,7 @@ const storyInfo = [
                         </View>
                         <Text style={{
                             textAlign: "center",
-                            fontSize: 10,
+                            fontSize: 14,
                             opacity: data.id == 0 ? 1 : 0.5
                         }}>
                             {data.name}

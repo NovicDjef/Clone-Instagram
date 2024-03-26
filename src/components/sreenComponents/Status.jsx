@@ -68,14 +68,13 @@ export default function Status({route, navigation}) {
                 <Image source={image}
                     style={{
                         borderRadius: 100,
-                        backgroundColor: "organge",
+                        backgroundColor: "orange",
                         resizeMode: "cover",
                         width: "92%",
                         height: "92%"
                     }}/>
             </View>
-       </View>
-        <View style={{
+            <View style={{
             justifyContent: "space-between",
             flexDirection: 'row',
             width: "100%"
@@ -89,11 +88,13 @@ export default function Status({route, navigation}) {
                     style={{fontSize: 20, color: "white", opacity: 0.6 }} />
             </TouchableOpacity>
         </View>
+       </View>
+
       </View>
       <Image source={image} style={{
         position: "absolute",
         width: "100%",
-        height: 600
+        height: 450
       }} />
       <View style={{
         position: "absolute",
@@ -102,7 +103,7 @@ export default function Status({route, navigation}) {
         flexDirection: "row",
         justifyContent: "space-around",
         alignItems: "center",
-        marginVertical: 10,
+        marginVertical: 25,
         width: "100%"
       }}>
         <TextInput 
@@ -111,20 +112,28 @@ export default function Status({route, navigation}) {
             style={{
                 borderColor: "white",
                 borderRadius: 25,
-                width: "85%",
-                height: 50,
+                width: "70%",
+                height: 40,
                 paddingLeft: 20,
                 borderWidth: 1,
                 fontSize: 20,
-                color: "white"
+                color: "white",
             }}
             />
-            <TouchableOpacity onPress={() => navigation.goBack()}>
-                <Feather name="navigation" style={{
-                    fontSize: 30, 
+            <View style={{flexDirection: "row"}}>
+            <TouchableOpacity style={{left: -12}} onPress={() => {}}>
+                <Feather name="heart" style={{
+                    fontSize: 26, 
                     color: "white"
                 }} />
             </TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.goBack()}>
+                <Feather name="send" style={{
+                    fontSize: 26, 
+                    color: "white"
+                }} />
+            </TouchableOpacity>
+            </View>
       </View>
     </View>
   )

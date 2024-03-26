@@ -1,4 +1,3 @@
-import { View, Text } from 'react-native'
 import React from 'react'
 import Ionic from "react-native-vector-icons/Ionicons"
 import { NavigationContainer } from '@react-navigation/native'
@@ -21,6 +20,7 @@ export default function App() {
     return(
       <Tab.Navigator 
         screenOptions={({route}) => ({
+          tabBarHideOnKeyboard: true,
           tabBaShowLabel: false,
           headerShown: false,
           tabBarStyle: {
@@ -30,21 +30,21 @@ export default function App() {
           tabBarIcon: ({focused, size, color}) => {
             let iconName;
             if(route.name === "Home"){
-              iconName = focused ? 'home-sharp' : 'home-outline';
+              iconName = focused ? 'home' : 'home-outline';
               size = focused ? size + 8 : size + 2;
             }else if(route.name === "Search"){
-              iconName = focused ? 'search' : 'ios-search-outline'
+              iconName = focused ? 'search' : 'search-outline'
             }
             else if(route.name === "Reels"){
-              iconName = focused ? 'caret-forward-circle' : 'caret-forward-circle-outline'
+              iconName = focused ? 'add-circle' : 'add-circle-outline'
             }
             else if(route.name === "Activity"){
-              iconName = focused ? 'ios-heart' : 'ios-heart-outline'
+              iconName = focused ? 'image' : 'image-outline'
             }
             else if(route.name === "Profile"){
-              iconName = focused ? 'ios-person-circle' : 'ios-person-circle-outline'
+              iconName = focused ? 'person-circle' : 'person-circle-outline'
             }
-            return <Ionic name={iconName} size={size} color={color} />
+            return <Ionic name={iconName} size={size} color={"black"} />
           }
         })}>
           <Tab.Screen name='Home' component={Home} />

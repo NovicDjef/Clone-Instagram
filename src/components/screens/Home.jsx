@@ -1,13 +1,23 @@
-import { View, Text, StatusBar, ScrollView } from 'react-native'
-import React from 'react'
-import FontAwersome from "react-native-vector-icons/FontAwersome"
+import { View, Text, StatusBar, ScrollView, RefreshControl } from 'react-native'
+import React, { useState } from 'react'
+// import FontAwersome from "react-native-vector-icons/FontAwersome"
 import Feather from "react-native-vector-icons/Feather"
 import Stories from '../sreenComponents/Stories'
 import Post from '../sreenComponents/Post'
 import Ionic from "react-native-vector-icons/Ionicons"
 
-
 export default function Home() {
+
+const [refresh, setRefresh] = useState(false)
+
+const PullMe = () => {
+    setRefresh(true);
+
+    setTimeout(() => {
+      setRefresh(false)
+    }, 1000)
+  }
+
   return (
     <View style={{backgroundColor: "white", height: "100%"}}>
         <StatusBar backgroundColor="white" barStyle='dark-content' animated={true}/>
@@ -17,13 +27,22 @@ export default function Home() {
             paddingHorizontal: 15,
             alignItems: "center"
         }}>
-            <FontAwersome name="plus-square-o" style={{fontSize: 24}}/>
-            <Text style={{fontFamily: "Lobster-Regular", fontSize: 25, fontWeight: 500}}>
+             <Text style={{fontFamily: 'Lobster-Regular', fontSize: 25, fontWeight: 500}}>
                 Instagram
             </Text>
-            <Feather name="navigation" style={{fontSize: 24}}/>
+            <View  style={{flexDirection: "row", }}>
+                <Ionic name="heart-outline" style={{fontSize: 24, }}/>
+                <Ionic name="chatbubble-ellipses-outline" style={{fontSize: 24, marginLeft: 8}}/>
+            </View>
         </View>
-        <ScrollView>
+        <ScrollView 
+            refreshControl={
+                <RefreshControl 
+                    refreshing={refresh}
+                    onRefresh={() => PullMe()}
+                />
+            }
+            >
             <Stories />
             <Post />
             <View style={{justifyContent: "center", alignItems: "center", padding: 20}}>
@@ -33,4 +52,4 @@ export default function Home() {
         </ScrollView>
     </View>
   )
-}s
+}

@@ -5,47 +5,55 @@ import AntDesign from "react-native-vector-icons/AntDesign"
 import Ionic from "react-native-vector-icons/Ionicons"
 import Entypo from "react-native-vector-icons/Entypo"
 
+
 export default function Post() {
 
     const postInfo = [
         {
             postTitle: "Destiny_Dj",
+            postImage: require("../../../assets/images/4.jpg"),
             postPersonImage: require("../../../assets/images/5.jpeg"),
             likes: 762,
             isLiked: false,
         },
         {
             postTitle: "Berlin_Priso",
+            postImage: require("../../../assets/images/2.jpg"),
             postPersonImage: require("../../../assets/images/fitness.jpg"),
             likes: 762,
             isLiked: false,
         },
         {
             postTitle: "Linda_Ng",
+            postImage: require("../../../assets/images/3.jpg"),
             postPersonImage: require("../../../assets/images/global.jpg"),
             likes: 762,
             isLiked: false,
         },
         {
             postTitle: "Larissa",
+            postImage: require("../../../assets/images/1.jpg"),
             postPersonImage: require("../../../assets/images/men.jpg"),
             likes: 762,
             isLiked: false,
         },
         {
             postTitle: "Sorel_Blanch",
+            postImage: require("../../../assets/images/4.jpg"),
             postPersonImage: require("../../../assets/images/generale.jpg"),
             likes: 762,
             isLiked: false,
         },
         {
             postTitle: "Yvan_La_Fleure",
-            postPersonImage: require("../../../assets/images/trian.png"),
+            postImage: require("../../../assets/images/1.jpg"),
+            postPersonImage: require("../../../assets/images/train.png"),
             likes: 762,
             isLiked: false,
         },
         {
             postTitle: "Docta",
+            postImage: require("../../../assets/images/1.jpg"),
             postPersonImage: require("../../../assets/images/2.jpg"),
             likes: 762,
             isLiked: false,
@@ -64,12 +72,16 @@ export default function Post() {
                         borderBottomColor: "gray",
                         borderBottomWidth: 0.1
                     }}>
-                        <View>
+                        <View  style={{
+                                flexDirection: "row",
+                                alignItems: "center",
+                                justifyContent: "space-between",
+                                padding: 15
+                            }}>
                             <View style={{
                                 flexDirection: "row",
                                 alignItems: "center",
-                                justifyContent: "center",
-                                padding: 15
+                              
                             }}>
                                 <Image source={data.postPersonImage} style={{
                                     width: 40,
@@ -96,7 +108,7 @@ export default function Post() {
                             justifyContent: "center",
                             alignItems: "center"
                         }}>
-                            <Image source={data.postPersonImage} style={{width: "100%", height: 400,}}/>
+                            <Image source={data.postImage} style={{width: "100%", height: 400,}}/>
                         </View>
                         <View style={{
                             flexDirection: "row",
@@ -114,14 +126,14 @@ export default function Post() {
                                     }}/>
                                 </TouchableOpacity>
                                 <TouchableOpacity>
-                                    <Ionic name="ios-chatbubble-outline"
+                                    <Ionic name="chatbubble-outline"
                                         style={{
                                             fontSize: 20,
                                             paddingRight: 10
                                         }} />
                                 </TouchableOpacity>
                                 <TouchableOpacity>
-                                    <Feather name="navigation"
+                                    <Feather name="send"
                                         style={{
                                             fontSize: 20,
                                         }} />
@@ -138,6 +150,11 @@ export default function Post() {
                             </Text>
                             <Text style={{fontWeight: "700", fontSize: 14, paddingVertical: 2}}>
                                 si tu as aimé la photo like et follow moi
+                                <Entypo name="emoji-happy" style={{
+                                        fontSize: 15,
+                                        color: "green",
+                                        marginRight: 10
+                                    }}/>
                             </Text>
                             <Text style={{
                                 opacity: 0.4,
