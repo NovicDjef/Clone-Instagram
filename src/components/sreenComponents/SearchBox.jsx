@@ -23,7 +23,7 @@ export default function SearchBox() {
             }}
              />
              <TextInput 
-              placeholder="Search" 
+              placeholder="Search.." 
               placeholderTextColor="#909090"
               style={{
                 width:"94%",
